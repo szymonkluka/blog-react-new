@@ -7,6 +7,7 @@ import PostId from './components/pages/PostId/PostId';
 import About from './components/pages/About/About';
 import Header from './components/views/Header/Header';
 import Footer from './components/views/Footer/Footer';
+import SinglePost from './components/pages/SinglePost/SinglePost';
 
 const App = () => {
   return (
@@ -14,6 +15,7 @@ const App = () => {
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />,
+        <Route path="/post/:id" element={<SinglePost />} />,
         <Route path="/post/add" element={<PostAdd />} />,
         <Route path="/post/edit/:id" element={<PostEditId />} />,
         <Route path="/post/:id" element={<PostId />} />,
