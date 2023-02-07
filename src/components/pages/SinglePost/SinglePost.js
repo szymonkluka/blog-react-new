@@ -26,7 +26,7 @@ const SinglePost = () => {
     return (
       <>
         <Row className="justify-content-center">
-          <Col className="col-7">
+          <Col className="col-9">
             <Card className="border-0">
               <Card.Body>
                 <Card.Title><h1>{postData.title}</h1></Card.Title>
@@ -35,13 +35,11 @@ const SinglePost = () => {
               </Card.Body>
             </Card>
           </Col>
-
-          <Col className="col-3">
+          <Col className="col-4">
             <Link to={"/post/edit/" + postData.id}><Button className="my-3 mx-3" variant="outline-info">Edit</Button></Link>
             <Button onClick={handleShow} variant="outline-danger">Delete</Button>
           </Col>
         </Row>
-
         <Modal show={show} onHide={handleClose}>
           <Modal.Header closeButton>
             <Modal.Title>Are you sure?</Modal.Title>
