@@ -6,14 +6,15 @@ const PostForm = ({ action, ...props }) => {
 
 
 
-  const [title, setTitle] = useState(props.published);
-  const [author, setAuthor] = useState(props.published);
-  const [description, setDescription] = useState(props.published);
-  const [published, setPublished] = useState(props.published);
+  const [title, setTitle] = useState(props.title);
+  const [author, setAuthor] = useState(props.author);
+  const [description, setDescription] = useState(props.description);
+  const [publishedDate, setPublishedDate] = useState(props.publishedDate);
+  const [mainContent, setMainContent] = useState(props.mainContent)
 
   const handleSubmit = () => {
 
-    action({ title, author, description, published });
+    action({ title, author, description, publishedDate, mainContent });
 
   };
 
@@ -38,8 +39,8 @@ const PostForm = ({ action, ...props }) => {
 
           <Form.Group className="mb-3" controlId="formBasicEmail">
             <Form.Label>Published</Form.Label>
-            <Form.Control value={published}
-              onChange={(e) => setPublished(e.target.value)}
+            <Form.Control value={publishedDate}
+              onChange={(e) => setPublishedDate(e.target.value)}
               placeholder="Enter date" />
           </Form.Group>
 
@@ -48,6 +49,13 @@ const PostForm = ({ action, ...props }) => {
             <Form.Control value={description}
               onChange={(e) => setDescription(e.target.value)}
               placeholder="Enter description" />
+          </Form.Group>
+
+          <Form.Group className="mb-3" controlId="formBasicEmail">
+            <Form.Label>Main content</Form.Label>
+            <Form.Control value={mainContent}
+              onChange={(e) => setMainContent(e.target.value)}
+              placeholder="Enter content" />
           </Form.Group>
 
           <Button

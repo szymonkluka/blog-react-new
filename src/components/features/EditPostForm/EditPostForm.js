@@ -25,6 +25,7 @@ const EditPostForm = () => {
       author={postData.author}
       publishedDate={postData.publishedDate}
       description={postData.description}
+      mainContent={postData.mainContent}
     />
 
   )
