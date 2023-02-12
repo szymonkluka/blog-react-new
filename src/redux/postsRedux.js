@@ -1,15 +1,26 @@
-//selectors
+import shortid from "shortid";
+
+
 export const getAllPosts = ({ posts }) => posts;
-export const getPostById = ({ posts }, postId) => posts.find(post => post.id === postId);
-export const removePost = payload => ({ type: REMOVE_POST, payload })
-// actions
+export const getPostByID = ({ posts }, id) => posts.find((post) => post.id === id);
+
+export const deletePost = payload => ({ type: DELETE_POST, payload })
+export const addPost = payload => ({ type: ADD_POST, payload });
+export const editPost = payload => ({ type: EDIT_POST, payload });
+
 const createActionName = actionName => `app/posts/${actionName}`;
-const REMOVE_POST = createActionName('REMOVE_POST')
-// action creators
+const DELETE_POST = createActionName('DELETE_POST')
+const ADD_POST = createActionName('ADD_POST');
+const EDIT_POST = createActionName('EDIT_POST');
+
 const postsReducer = (statePart = [], action) => {
   switch (action.type) {
-    case REMOVE_POST:
+    case DELETE_POST:
       return statePart.filter((post) => post.id !== action.payload);
+    case ADD_POST:
+      return [...statePart, { id: shortid(), ...action.payload }];
+    case EDIT_POST:
+      return statePart.map(post => (post.id === action.payload.id) ? { ...post, ...action.payload } : post);
     default:
       return statePart;
   };
