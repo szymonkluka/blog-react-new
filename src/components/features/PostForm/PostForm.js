@@ -1,10 +1,15 @@
 import { useState } from "react";
 import { Button, Col, Form, FormGroup, Row } from "react-bootstrap";
-
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+import ReactQuill from 'react-quill';
+import 'react-quill/dist/quill.snow.css'; // ES6
 
 const PostForm = ({ action, ...props }) => {
 
-
+  const handleChange = value => {
+    setPublishedDate(value);
+  };
 
   const [title, setTitle] = useState(props.title);
   const [author, setAuthor] = useState(props.author);
@@ -39,9 +44,12 @@ const PostForm = ({ action, ...props }) => {
 
           <Form.Group className="mb-3" controlId="formBasicEmail">
             <Form.Label>Published</Form.Label>
-            <Form.Control value={publishedDate}
-              onChange={(e) => setPublishedDate(e.target.value)}
-              placeholder="Enter date" />
+            <Form.Label>Published</Form.Label>
+            <DatePicker
+              selected={publishedDate}
+              onChange={handleChange}
+              dateFormat="dd-MM-yyyy"
+            />
           </Form.Group>
 
           <Form.Group className="mb-3" controlId="formBasicEmail">
@@ -53,8 +61,8 @@ const PostForm = ({ action, ...props }) => {
 
           <Form.Group className="mb-3" controlId="formBasicEmail">
             <Form.Label>Main content</Form.Label>
-            <Form.Control value={mainContent}
-              onChange={(e) => setMainContent(e.target.value)}
+            <ReactQuill theme="snow" value={mainContent}
+              onChange={setMainContent}
               placeholder="Enter content" />
           </Form.Group>
 

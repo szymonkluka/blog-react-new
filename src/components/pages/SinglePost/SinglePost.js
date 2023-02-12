@@ -5,6 +5,8 @@ import { Link, Navigate, useParams } from "react-router-dom";
 import { getPostByID } from "../../../redux/postsRedux";
 import { deletePost } from "../../../redux/postsRedux";
 import React from 'react';
+import { dateToStr } from '../../../utlis/dateTostr';
+
 
 
 const SinglePost = () => {
@@ -34,9 +36,9 @@ const SinglePost = () => {
               <Card.Body>
                 <Card.Title><h1>{postData.title}</h1></Card.Title>
                 <Card.Text className="my-0"><strong>Author: </strong>{postData.author}</Card.Text>
-                <Card.Text className="my-0"><strong>Published: </strong>{postData.publishedDate}</Card.Text>
-                <Card.Text className="my-0"><strong>Description: </strong>{(postData.description)}</Card.Text>
-                <Card.Text className="my-2"><strong></strong>{(postData.mainContent)}</Card.Text>
+
+                <Card.Text className="my-0"><strong>Published: </strong>{dateToStr(postData.publishedDate)}</Card.Text>
+                <Card.Text elem dangerouslySetInnerHTML={{ __html: postData.mainContent }} />
               </Card.Body>
             </Card>
           </Col>

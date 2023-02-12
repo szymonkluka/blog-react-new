@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { Card, Button, Row, Col } from "react-bootstrap";
 import { getAllPosts } from "../../../redux/postsRedux";
 import { useSelector } from "react-redux";
-
+import { dateToStr } from '../../../utlis/dateTostr';
 
 const Posts = () => {
 
@@ -16,7 +16,7 @@ const Posts = () => {
             <Card.Body>
               <Card.Title>{post.title}</Card.Title>
               <Card.Text className="my-0"><strong>Author: </strong>{post.author}</Card.Text>
-              <Card.Text className="my-0"><strong>Published: </strong>{post.publishedDate}</Card.Text>
+              <Card.Text className="my-0"><strong>Published: </strong>{dateToStr(post.publishedDate)}</Card.Text>
               <Card.Text className="my-2">{post.description}</Card.Text>
               <Link to={"/post/" + post.id}>
                 <Button variant="primary">Read more</Button>
