@@ -12,7 +12,6 @@ const Home = () => {
           <Link to="/post/add"><Button className="mb-5" variant="outline-info">Add post</Button></Link>
         </Col>
       </Row>
-
       <Posts />
     </>
   )

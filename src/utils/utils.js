@@ -1,14 +1,11 @@
-
-
-
 export const dateToStr = (publishedDate) => {
-  var strSplitDate = String(publishedDate).split(' ');
-  var date = new Date(strSplitDate[0]);
+  let strSplitDate = String(publishedDate).split(' ');
+  let date = new Date(strSplitDate[0]);
   // alert(date);
-  var dd = publishedDate.getDate();
-  var mm = publishedDate.getMonth() + 1; //January is 0!
+  let dd = publishedDate.getDate();
+  let mm = publishedDate.getMonth() + 1; //January is 0!
 
-  var yyyy = publishedDate.getFullYear();
+  let yyyy = publishedDate.getFullYear();
   if (dd < 10) {
     dd = '0' + dd;
   }
