@@ -37,6 +37,7 @@ const SinglePost = () => {
                 <Card.Title><h1>{postData.title}</h1></Card.Title>
                 <Card.Text className="my-0"><strong>Author: </strong>{postData.author}</Card.Text>
                 <Card.Text className="my-0"><strong>Published: </strong>{dateToStr(postData.publishedDate)}</Card.Text>
+                <Card.Text className="my-0"><strong>Category:</strong>{postData.category}</Card.Text>
                 <Card.Text className="my-2"><strong>Short description: </strong>{postData.description}</Card.Text>
                 <Card.Text elem dangerouslySetInnerHTML={{ __html: postData.mainContent }} />
               </Card.Body>

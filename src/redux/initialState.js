@@ -26,9 +26,13 @@ const initialState = {
       category: 'travel',
       description: 'new article 3',
       mainContent: 'Main content of the article3',
-    }
+    },
+
   ],
 
+  categories: [
+    'sport', 'cars', 'travel',
+  ],
 
 };
 

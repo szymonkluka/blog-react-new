@@ -4,6 +4,14 @@ import shortid from "shortid";
 export const getAllPosts = ({ posts }) => posts;
 export const getPostByID = ({ posts }, postsId) => posts.find(list => list.id === postsId);
 
+export const getAllCategories = ({ categories }) => categories;
+
+export const categoriesReducer = (statePart = [], action) => {
+  switch (action.type) {
+    default: return statePart;
+  }
+};
+
 export const deletePost = payload => ({ type: DELETE_POST, payload })
 export const addPost = payload => ({ type: ADD_POST, payload });
 export const editPost = payload => ({ type: EDIT_POST, payload });

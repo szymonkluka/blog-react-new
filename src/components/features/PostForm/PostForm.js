@@ -5,6 +5,8 @@ import "react-datepicker/dist/react-datepicker.css";
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css'; // ES6
 import { useForm } from 'react-hook-form';
+import { getAllCategories } from '../../../redux/postsRedux';
+import { useSelector } from 'react-redux';
 
 
 const PostForm = ({ action, ...props }) => {
@@ -14,6 +16,10 @@ const PostForm = ({ action, ...props }) => {
   const handleChange = value => {
     setPublishedDate(value);
   };
+
+  const [category, setCategory] = useState(props.category);
+  const categories = useSelector(getAllCategories);
+
 
 
 
@@ -31,7 +37,7 @@ const PostForm = ({ action, ...props }) => {
     setContentError(!mainContent)
     setDateError(!publishedDate);
     if (mainContent && publishedDate) {
-      action({ title, author, publishedDate, description, mainContent });
+      action({ title, author, publishedDate, description, mainContent, category });
     }
   };
 
@@ -68,6 +74,20 @@ const PostForm = ({ action, ...props }) => {
               dateFormat="dd-MM-yyyy"
             />
             {dateError && <small className="d-block form-text text-danger mt-2">Content can't be empty</small>}
+          </Form.Group>
+
+          <Form.Group className="mb-3" controlId="formBasicEmail">
+            <Form.Label>Category</Form.Label>
+            <Form.Select aria-label="Default select example"
+              value={category}
+              onChange={(e) => setCategory(e.target.value)}
+
+            >
+              <option key='blankChoice' hidden value></option>
+              {categories.map(category => (
+                <option key={category} value={category}>{category}</option>
+              ))}
+            </Form.Select>
           </Form.Group>
 
           <Form.Group className="mb-3" controlId="formBasicEmail">

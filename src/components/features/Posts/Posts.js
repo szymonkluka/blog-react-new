@@ -17,6 +17,7 @@ const Posts = () => {
               <Card.Title>{post.title}</Card.Title>
               <Card.Text className="my-0"><strong>Author: </strong>{post.author}</Card.Text>
               <Card.Text className="my-0"><strong>Published: </strong>{dateToStr(post.publishedDate)}</Card.Text>
+              <Card.Text className="my-0"><strong>Category: </strong>{post.category}</Card.Text>
               <Card.Text className="my-2">{post.description}</Card.Text>
               <Link to={"/post/" + post.id}>
                 <Button variant="primary">Read more</Button>

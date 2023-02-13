@@ -22,6 +22,7 @@ const EditPostForm = () => {
       action={handleSubmit}
       actionText="Edit post"
       title={postData.title}
+      category={postData.category}
       author={postData.author}
       publishedDate={postData.publishedDate}
       description={postData.description}
