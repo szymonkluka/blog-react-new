@@ -2,12 +2,12 @@ import { Col, Card, Row, Button } from 'react-bootstrap';
 import { useSelector } from 'react-redux';
 import { Link, useParams } from 'react-router-dom';
 import { dateToStr } from '../../../utlis/dateTostr';
-import { getCategoryByPost } from '../../../redux/categoryRedux';
+import { getPostsByCategory } from '../../../redux/categoryRedux';
 
 const SingleCategory = () => {
     const { categoryId } = useParams();
 
-    const categories = useSelector(state => getCategoryByPost(state, categoryId));
+    const categories = useSelector(state => getPostsByCategory(state, categoryId));
 
     if (categories.length === 0)
         return (
@@ -20,7 +20,7 @@ const SingleCategory = () => {
     else
 
         return (
-            <row xs-1 md-1 lg-1>
+            <Row xs-1 md-1 lg-1>
                 <h1>{categoryId}</h1>
                 {categories.map(post => (
                     <Col key={post.id}>
@@ -38,7 +38,7 @@ const SingleCategory = () => {
                         </Card>
                     </Col>
                 ))}
-            </row>
+            </Row>
         );
 }
 

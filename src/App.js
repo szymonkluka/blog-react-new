@@ -3,7 +3,7 @@ import { Container } from "react-bootstrap";
 import Home from "./components/pages/Home/Home"
 import SinglePost from "./components/pages/SinglePost/SinglePost.js"
 import PostAdd from "./components/pages/PostAdd/PostAdd"
-import PostEdit from './components/pages/PostEditId/PostEdit';
+import PostEdit from './components/pages/PostEdit/PostEdit';
 import About from "./components/pages/About/About"
 import Header from "./components/views/Header/Header";
 import Footer from "./components/views/Footer/Footer";

@@ -1,7 +1,7 @@
 import shortid from "shortid";
 
 export const getAllPosts = ({ posts }) => posts;
-export const getPostByID = ({ posts }, postsId) => posts.find(list => list.id === postsId);
+export const getPostByID = ({ posts }, postsId) => posts.find(post => post.id === postsId);
 
 export const deletePost = payload => ({ type: DELETE_POST, payload })
 export const addPost = payload => ({ type: ADD_POST, payload });

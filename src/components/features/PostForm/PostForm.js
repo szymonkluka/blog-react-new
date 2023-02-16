@@ -7,7 +7,6 @@ import 'react-quill/dist/quill.snow.css'; // ES6
 import { useForm } from 'react-hook-form';
 import { getAllCategories } from '../../../redux/categoryRedux';
 import { useSelector } from 'react-redux';
-import Category from '../Category/Category';
 
 const PostForm = ({ action, ...props }) => {
 
@@ -29,8 +28,6 @@ const PostForm = ({ action, ...props }) => {
 
   const [contentError, setContentError] = useState(false)
   const [dateError, setDateError] = useState(false);
-
-
 
   const handleSubmit = () => {
     setContentError(!mainContent)

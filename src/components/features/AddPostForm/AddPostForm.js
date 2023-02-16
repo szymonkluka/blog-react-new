@@ -13,7 +13,7 @@ const AddPostForm = () => {
     navigate('/');
   };
 
-  return <PostForm action={handleSubmit} actionText='ADD_POST' />
+  return <PostForm action={handleSubmit} />
 }
 
 export default AddPostForm
