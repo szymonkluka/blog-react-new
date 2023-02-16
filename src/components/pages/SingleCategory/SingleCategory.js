@@ -20,7 +20,7 @@ const SingleCategory = () => {
     else
 
         return (
-            <Row xs-1 md-1 lg-1>
+            <Row>
                 <h1>{categoryId}</h1>
                 {posts.map(post => (
                     <Col key={post.id}>
