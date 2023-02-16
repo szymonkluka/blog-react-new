@@ -7,9 +7,9 @@ import { getPostsByCategory } from '../../../redux/categoryRedux';
 const SingleCategory = () => {
     const { categoryId } = useParams();
 
-    const categories = useSelector(state => getPostsByCategory(state, categoryId));
+    const posts = useSelector(state => getPostsByCategory(state, categoryId));
 
-    if (categories.length === 0)
+    if (posts.length === 0)
         return (
             <Row>
                 <Card.Title className="mb-4"><strong><h1>Category: {categoryId}</h1></strong></Card.Title>
@@ -22,7 +22,7 @@ const SingleCategory = () => {
         return (
             <Row xs-1 md-1 lg-1>
                 <h1>{categoryId}</h1>
-                {categories.map(post => (
+                {posts.map(post => (
                     <Col key={post.id}>
                         <Card className="mb-3">
                             <Card.Body>
