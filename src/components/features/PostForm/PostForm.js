@@ -7,6 +7,7 @@ import 'react-quill/dist/quill.snow.css'; // ES6
 import { useForm } from 'react-hook-form';
 import { getAllCategories } from '../../../redux/categoryRedux';
 import { useSelector } from 'react-redux';
+import Category from '../Category/Category';
 
 const PostForm = ({ action, ...props }) => {
 
@@ -18,6 +19,7 @@ const PostForm = ({ action, ...props }) => {
 
   const [category, setCategory] = useState(props.category);
   const categories = useSelector(getAllCategories);
+  const [categoryError, setCategoryError] = useState(false)
 
   const [title, setTitle] = useState(props.title);
   const [author, setAuthor] = useState(props.author);
@@ -29,10 +31,12 @@ const PostForm = ({ action, ...props }) => {
   const [dateError, setDateError] = useState(false);
 
 
+
   const handleSubmit = () => {
     setContentError(!mainContent)
     setDateError(!publishedDate);
-    if (mainContent && publishedDate) {
+    setCategoryError(!category);
+    if (mainContent && publishedDate && category) {
       action({ title, author, publishedDate, description, mainContent, category });
     }
   };
@@ -83,6 +87,7 @@ const PostForm = ({ action, ...props }) => {
                 <option key={category} value={category}>{category}</option>
               ))}
             </Form.Select>
+            {categoryError && <small className="d-block form-text text-danger mt-2">Please choose your category</small>}
           </Form.Group>
 
           <Form.Group className="mb-3" controlId="formBasicEmail">
