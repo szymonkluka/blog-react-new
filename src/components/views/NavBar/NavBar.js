@@ -11,6 +11,7 @@ const NavBar = () => {
           <Navbar.Brand as={NavLink} to="/">Blog app</Navbar.Brand>
           <Nav className="justify-content-end">
             <Nav.Link as={NavLink} to="/">Home</Nav.Link>
+            <Nav.Link as={NavLink} to="/category">Your categories</Nav.Link>
             <Nav.Link as={NavLink} to="/about">About</Nav.Link>
           </Nav>
         </Container>

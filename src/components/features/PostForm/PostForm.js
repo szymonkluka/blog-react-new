@@ -1,27 +1,23 @@
 import { useState } from "react";
-import { Button, Col, Form, FormGroup, Row } from "react-bootstrap";
+import { Button, Col, Form, Row } from "react-bootstrap";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css'; // ES6
 import { useForm } from 'react-hook-form';
-import { getAllCategories } from '../../../redux/postsRedux';
+import { getAllCategories } from '../../../redux/categoryRedux';
 import { useSelector } from 'react-redux';
-
 
 const PostForm = ({ action, ...props }) => {
 
   const { register, handleSubmit: validate, formState: { errors } } = useForm();
 
-  const handleChange = value => {
+  const handleChangePublishedDate = value => {
     setPublishedDate(value);
   };
 
   const [category, setCategory] = useState(props.category);
   const categories = useSelector(getAllCategories);
-
-
-
 
   const [title, setTitle] = useState(props.title);
   const [author, setAuthor] = useState(props.author);
@@ -70,7 +66,7 @@ const PostForm = ({ action, ...props }) => {
             <Form.Label>Published</Form.Label>
             <DatePicker
               selected={publishedDate}
-              onChange={handleChange}
+              onChange={handleChangePublishedDate}
               dateFormat="dd-MM-yyyy"
             />
             {dateError && <small className="d-block form-text text-danger mt-2">Content can't be empty</small>}
@@ -81,7 +77,6 @@ const PostForm = ({ action, ...props }) => {
             <Form.Select aria-label="Default select example"
               value={category}
               onChange={(e) => setCategory(e.target.value)}
-
             >
               <option key='blankChoice' hidden value></option>
               {categories.map(category => (
@@ -106,7 +101,6 @@ const PostForm = ({ action, ...props }) => {
               onChange={setMainContent}
               placeholder="Enter content" />
             {contentError && <small className="d-block form-text text-danger mt-2">Content can't be empty</small>}
-
           </Form.Group>
 
           <Button

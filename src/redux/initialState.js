@@ -5,7 +5,7 @@ const initialState = {
       title: 'Article title',
       author: 'Alicja Janis',
       publishedDate: new Date('02-07-2022'),
-      category: 'sport',
+      category: 'Sport',
       description: 'new article 1',
       mainContent: 'Main content of the article1',
     },
@@ -14,7 +14,7 @@ const initialState = {
       title: 'Article title2',
       author: 'Marika Dziebla',
       publishedDate: new Date('02-07-2022'),
-      category: 'movies',
+      category: 'Movies',
       description: 'new article 2',
       mainContent: 'Main content of the article2',
     },
@@ -23,7 +23,7 @@ const initialState = {
       title: 'Article title3',
       author: 'Maria Kozłowska',
       publishedDate: new Date('02-07-2022'),
-      category: 'travel',
+      category: 'Travel',
       description: 'new article 3',
       mainContent: 'Main content of the article3',
     },
@@ -31,7 +31,7 @@ const initialState = {
   ],
 
   categories: [
-    'sport', 'cars', 'travel',
+    'Sport', 'Movies', 'Travel',
   ],
 
 };
