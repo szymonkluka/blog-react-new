@@ -1,13 +1,11 @@
 import { useState } from "react";
-import { Button, Card, Col, Modal, Row } from "react-bootstrap";
+import { Button, Card, Col, Modal } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, Navigate, useParams } from "react-router-dom";
 import { getPostByID } from "../../../redux/postsRedux";
 import { deletePost } from "../../../redux/postsRedux";
 import React from 'react';
 import { dateToStr } from '../../../utlis/dateTostr';
-
-
 
 const SinglePost = () => {
 
@@ -19,7 +17,6 @@ const SinglePost = () => {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-
   const dispatch = useDispatch();
   const removePostClick = () => {
     dispatch(deletePost(postData.id))
@@ -30,7 +27,7 @@ const SinglePost = () => {
   else
     return (
       <>
-        <Row className="center">
+        <div className="center">
           <Col className="col-9">
             <Card className="border-0">
               <Card.Body>
@@ -39,14 +36,14 @@ const SinglePost = () => {
                 <Card.Text className="my-0"><strong>Published: </strong>{dateToStr(postData.publishedDate)}</Card.Text>
                 <Card.Text className="my-0"><strong>Category:</strong>{postData.category}</Card.Text>
                 <Card.Text className="my-2"><strong>Short description: </strong>{postData.description}</Card.Text>
-                <Card.Text elem dangerouslySetInnerHTML={{ __html: postData.mainContent }} />
+                <Card.Text dangerouslySetInnerHTML={{ __html: postData.mainContent }} />
               </Card.Body>
             </Card>
           </Col>
           <Col className="col-3">
             <>
               <Link to={"/post/edit/" + postData.id}><Button className="my-3 mx-3" variant="outline-info">Edit</Button></Link>
-              <Button variant="danger" class="btn btn-danger" onClick={handleShow}>
+              <Button variant="danger" className="btn btn-danger" onClick={handleShow}>
                 Delete
               </Button>
               <Modal show={show}>
@@ -65,7 +62,7 @@ const SinglePost = () => {
               </Modal>
             </>
           </Col>
-        </Row>
+        </div>
       </>
 
     )

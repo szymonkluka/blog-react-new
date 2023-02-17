@@ -3,7 +3,7 @@ import { Card, Col, Row } from "react-bootstrap";
 import { useSelector } from "react-redux";
 import { getAllCategories } from '../../../redux/categoryRedux';
 
-const Category = () => {
+const Categories = () => {
 
   const categories = useSelector(getAllCategories);
 
@@ -25,4 +25,4 @@ const Category = () => {
   );
 }
 
-export default Category;
+export default Categories;

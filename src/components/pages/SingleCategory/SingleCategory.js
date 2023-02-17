@@ -2,7 +2,7 @@ import { Col, Card, Row, Button } from 'react-bootstrap';
 import { useSelector } from 'react-redux';
 import { Link, useParams } from 'react-router-dom';
 import { dateToStr } from '../../../utlis/dateTostr';
-import { getPostsByCategory } from '../../../redux/categoryRedux';
+import { getPostsByCategory } from '../../../redux/postsRedux';
 
 const SingleCategory = () => {
     const { categoryId } = useParams();
