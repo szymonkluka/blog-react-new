@@ -8,7 +8,7 @@ const Home = () => {
     <>
       <Row>
         <Col className="d-flex justify-content-between">
-          <h1>All posts</h1>
+          <h1>All tables</h1>
           <Link to="/post/add"><Button className="mb-5" variant="outline-info">Add post</Button></Link>
         </Col>
       </Row>

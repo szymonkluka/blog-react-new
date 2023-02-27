@@ -2,31 +2,42 @@ import { Link } from "react-router-dom";
 import { Card, Button, Row, Col } from "react-bootstrap";
 import { getAllPosts } from "../../../redux/postsRedux";
 import { useSelector } from "react-redux";
-import { dateToStr } from '../../../utlis/dateTostr';
+import { useState } from "react";
+import { Modal } from "react-bootstrap";
+import { Navigate, useParams } from "react-router-dom";
+import { getPostByID } from "../../../redux/postsRedux";
+import { deletePost } from "../../../redux/postsRedux";
+import React from 'react';
 
 const Posts = () => {
+
+  const { id } = useParams();
+  const postData = useSelector(state => getPostByID(state, id));
 
   const posts = useSelector(getAllPosts);
 
   return (
-    <Row xs={1} md={1} lg={3}>
+    <Row xs={1} md={1} lg={1}>
       {posts.map(post => (
         <Col key={post.id}>
           <Card className="mb-3">
             <Card.Body>
-              <Card.Title>{post.title}</Card.Title>
-              <Card.Text className="my-0"><strong>Author: </strong>{post.author}</Card.Text>
-              <Card.Text className="my-0"><strong>Published: </strong>{dateToStr(post.publishedDate)}</Card.Text>
-              <Card.Text className="my-0"><strong>Category: </strong>{post.category}</Card.Text>
-              <Card.Text className="my-2">{post.description}</Card.Text>
-              <Link to={"/post/" + post.id}>
-                <Button variant="primary">Read more</Button>
-              </Link>
+              <div className="d-flex">
+                <div className="p-1 flex-3">
+                  <strong><h2>{post.title}</h2></strong></div>
+                <div className="p-3 flex-2"><strong>Status: </strong>{post.category}</div>
+                <div className="ms-auto p-2">
+                  <Link to={"/post/edit/" + post.id}>
+                    <Button variant="primary">Show more</Button>
+                  </Link>
+                </div>
+              </div>
             </Card.Body>
           </Card>
         </Col>
-      ))}
-    </Row>
+      ))
+      }
+    </Row >
   );
 }
 

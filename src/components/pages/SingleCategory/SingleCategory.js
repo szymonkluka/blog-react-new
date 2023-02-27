@@ -27,6 +27,7 @@ const SingleCategory = () => {
                         <Card className="mb-3">
                             <Card.Body>
                                 <Card.Title>{post.title}</Card.Title>
+                                <Card.Title>{post.title2}</Card.Title>
                                 <Card.Text className="my-0"><strong>Author: </strong>{post.author}</Card.Text>
                                 <Card.Text className="my-0"><strong>Published: </strong>{dateToStr(post.publishedDate)}</Card.Text>
                                 <Card.Text><strong>Category: </strong>{post.category}</Card.Text>
